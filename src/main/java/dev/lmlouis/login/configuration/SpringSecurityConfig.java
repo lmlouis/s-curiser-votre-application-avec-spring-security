@@ -24,7 +24,9 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
             .antMatchers("/user").hasRole("USER") // sur des ressources verouillées par le role USER
             .anyRequest().authenticated() // et sur toute requêtte qui nécessite une authentification
             .and()
-            .formLogin(); // provenant du fomulaire de login
+            .formLogin()
+            .and()
+            .oauth2Login(); // provenant du fomulaire de login
     }
 
     // méthode  configure()  avec la classe AuthenticationManagerBuilder pour gérer la série de règles d’authentification. 
